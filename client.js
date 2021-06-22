@@ -5,13 +5,14 @@ console.log('Here are all the available people:', people);
 function readyNow(){
     loadImages();
     loadText();
+    $('.picturesHere').on('click', '.githubProfile', gameChoices);
 }
 
 function loadText(){
     const objectPerson = randomPerson();
     const nameOfPerson = objectPerson.name;
     const usernameOfPerson = objectPerson.githubUsername;
-    $('.findPerson').append(`<h2>Click on: ${objectPerson.name}</h2>`)
+    $('.findPerson').append(`<h2 id="${usernameOfPerson}">Click on: ${nameOfPerson}</h2>`)
 }
 
 function loadImages(){
@@ -29,5 +30,9 @@ function randomPerson(){
 }
 
 function gameChoices(){
-
+    const clickedPicture = $(this).data('id');
+    const targetPicture = $('h2').attr('id');
+    if (clickedPicture == targetPicture){
+        console.log('correct');
+    }
 }
