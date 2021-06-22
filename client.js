@@ -35,10 +35,34 @@ function gameChoices(){
     const targetPicture = $('h2').attr('id');
     if (clickedPicture == targetPicture){
         //console.log('correct');
-        alert('Correct! Play Again?');
+        //alert('Correct! Play Again?');
+        modalAlert('correct');
+        setTimeout(toggleModal, 2000);
         loadText();
     } else if (clickedPicture != targetPicture){
         //console.log('incorrect');
-        alert('Incorrect.. guess again!')
+        //alert('Incorrect.. guess again!')
+        modalAlert('incorrect');
+        setTimeout(toggleModal, 2000);
     }
+}
+
+
+function modalAlert(guess){
+    $('.alertPopup').empty();
+    $('.alertPopup').append(` <div class="modal fade" id="alertModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <p>Your guess was ${guess}.. try again?!</p>
+                                        </div>   
+                                    </div>                                                                       
+                                </div>                                          
+                            </div>`);
+    //$('#alertModal').modal('show');
+    toggleModal();
+}
+
+function toggleModal(){
+    $('#alertModal').modal('toggle')
 }
