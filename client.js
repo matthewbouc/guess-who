@@ -17,7 +17,9 @@ function loadText(){
 }
 
 function loadImages(){
-    for (person of people){
+    const shuffle = shuffledArray(people);
+    console.log(shuffle);
+    for (person of shuffle){
         $('.picturesHere').append(`<div class="githubProfile" data-id="${person.githubUsername}">
                                         <img src="https://github.com/${person.githubUsername}.png?size=250" alt="Image of ${person.name}"/>
                                     </div>`)
@@ -65,4 +67,17 @@ function modalAlert(guess){
 
 function toggleModal(){
     $('#alertModal').modal('toggle')
+}
+
+function shuffledArray(imageArray){
+    const oldArray = imageArray;
+    const newArray = [];
+    let count = oldArray.length
+    let index = Math.floor(Math.random()*count);
+    while (count > 0){
+        let pushedItem = oldArray.splice(index,1);
+        newArray.push(pushedItem[0]);
+        count --;
+    }
+    return newArray;
 }
