@@ -3,6 +3,7 @@ $(document).ready(readyNow);
 console.log('Here are all the available people:', people);
 
 function readyNow(){
+    console.log(shuffledArray(people));
     loadImages();
     loadText();
     $('.picturesHere').on('click', '.githubProfile', gameChoices);
@@ -17,9 +18,7 @@ function loadText(){
 }
 
 function loadImages(){
-    const shuffle = shuffledArray(people);
-    console.log(shuffle);
-    for (person of shuffle){
+    for (person of people){
         $('.picturesHere').append(`<div class="githubProfile" data-id="${person.githubUsername}">
                                         <img src="https://github.com/${person.githubUsername}.png?size=250" alt="Image of ${person.name}"/>
                                     </div>`)
@@ -69,15 +68,22 @@ function toggleModal(){
     $('#alertModal').modal('toggle')
 }
 
-function shuffledArray(imageArray){
-    const oldArray = imageArray;
+function shuffledArray(array){
+    const oldArray = array;
     const newArray = [];
-    let count = oldArray.length
+    let count = 10;
     let index = Math.floor(Math.random()*count);
     while (count > 0){
+        let index = Math.floor(Math.random()*count);
         let pushedItem = oldArray.splice(index,1);
         newArray.push(pushedItem[0]);
         count --;
+        //console.log(index);
+        //console.log(count);
+        //console.log(pushedItem);
+        //console.log(newArray);
     }
+    console.log(newArray);
+    console.log(people);
     return newArray;
 }
