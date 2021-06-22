@@ -3,7 +3,6 @@ $(document).ready(readyNow);
 console.log('Here are all the available people:', people);
 
 function readyNow(){
-    console.log(shuffledArray(people));
     loadImages();
     loadText();
     $('.picturesHere').on('click', '.githubProfile', gameChoices);
@@ -18,6 +17,7 @@ function loadText(){
 }
 
 function loadImages(){
+    $('.picturesHere').empty()
     for (person of people){
         $('.picturesHere').append(`<div class="githubProfile" data-id="${person.githubUsername}">
                                         <img src="https://github.com/${person.githubUsername}.png?size=250" alt="Image of ${person.name}"/>
@@ -40,6 +40,8 @@ function gameChoices(){
         modalAlert('correct');
         setTimeout(toggleModal, 2000);
         loadText();
+        shuffledArray(people);
+        loadImages();
     } else if (clickedPicture != targetPicture){
         //console.log('incorrect');
         //alert('Incorrect.. guess again!')
@@ -69,9 +71,9 @@ function toggleModal(){
 }
 
 function shuffledArray(array){
-    const oldArray = array;
-    const newArray = [];
-    let count = 10;
+    let oldArray = array;
+    let newArray = [];
+    let count = array.length;
     let index = Math.floor(Math.random()*count);
     while (count > 0){
         let index = Math.floor(Math.random()*count);
@@ -85,5 +87,6 @@ function shuffledArray(array){
     }
     console.log(newArray);
     console.log(people);
-    return newArray;
+    people = newArray;
+    //return newArray;
 }
