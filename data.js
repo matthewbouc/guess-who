@@ -30,5 +30,13 @@ const people = [
   {
     name: 'Matt',
     githubUsername: 'matthewbouc'
+  },
+  {
+    name: 'Tim',
+    githubUsername: 'tadugan'
+  },
+  {
+    name: 'Steve',
+    githubUsername: 'stevesavstrom'
   }
 ];

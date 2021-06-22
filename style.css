@@ -1,0 +1,4 @@
+.picturesHere {
+    display: flex;
+    flex-wrap: wrap;
+}
