@@ -1,4 +1,4 @@
-var people = [
+const people = [
   {
     name: 'Dev',
     githubUsername: 'devjanaprime'
@@ -27,4 +27,8 @@ var people = [
     name: 'Chris',
     githubUsername: 'christopher-black'
   },
+  {
+    name: 'Matt',
+    githubUsername: 'matthewbouc'
+  }
 ];
