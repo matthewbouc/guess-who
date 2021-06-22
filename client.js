@@ -8,7 +8,10 @@ function readyNow(){
 }
 
 function loadText(){
-    $('.findPerson').append(`<h2>Click on: ${randomPerson()}</h2>`)
+    const objectPerson = randomPerson();
+    const nameOfPerson = objectPerson.name;
+    const usernameOfPerson = objectPerson.githubUsername;
+    $('.findPerson').append(`<h2>Click on: ${objectPerson.name}</h2>`)
 }
 
 function loadImages(){
@@ -21,7 +24,10 @@ function loadImages(){
 
 function randomPerson(){
     const randomNumber = Math.floor(Math.random()*10);
-    const personToFind = people[randomNumber].name;
-    console.log(personToFind);
+    const personToFind = people[randomNumber];
     return personToFind
+}
+
+function gameChoices(){
+
 }
