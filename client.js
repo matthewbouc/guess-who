@@ -9,6 +9,7 @@ function readyNow(){
 }
 
 function loadText(){
+    $('.findPerson').empty();
     const objectPerson = randomPerson();
     const nameOfPerson = objectPerson.name;
     const usernameOfPerson = objectPerson.githubUsername;
@@ -33,6 +34,11 @@ function gameChoices(){
     const clickedPicture = $(this).data('id');
     const targetPicture = $('h2').attr('id');
     if (clickedPicture == targetPicture){
-        console.log('correct');
+        //console.log('correct');
+        alert('Correct! Play Again?');
+        loadText();
+    } else if (clickedPicture != targetPicture){
+        //console.log('incorrect');
+        alert('Incorrect.. guess again!')
     }
 }
